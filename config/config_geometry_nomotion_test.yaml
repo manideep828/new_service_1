@@ -1,0 +1,35 @@
+camera_id: CAM-01
+parking_area_id: AREA-01
+source: C:\Users\Admin\Downloads\VN20261005_103538.mp4
+replay: realtime
+geometry_file: data/geometry_calibration_reordered.json
+detector:
+  model_path: yolo11n.pt
+  max_fps: 5
+  threads: 2
+plate:
+  enabled: true
+  min_vehicle_height_px: 70
+  interval_s: 0.1
+  confirm_reads: 2
+  confirm_conf: 0.4
+  emit_deadline_s: 10.0
+  min_crop_brightness: 8.0
+  max_crop_brightness: 247.0
+  min_crop_contrast: 5.0
+  min_crop_laplacian_var: 2.0
+  min_plate_detector_conf: 0.3
+  min_plate_width_px: 24
+  min_plate_height_px: 8
+  min_plate_aspect_ratio: 1.5
+  max_plate_aspect_ratio: 7.0
+publisher:
+  outbox_db: data/outbox_live.db
+  s2_url: https://smart-parking-data-service.onrender.com/internal/events/vehicle
+parking:
+  moved_frac: 0.2
+  leave_dwell_s: 3.0
+  leave_overlap: 0.3
+camera_motion:
+  enabled: false
+  diagnostics_path: data/camera_motion_nomotion_test.csv

@@ -1,0 +1,37 @@
+# Only keys you want to change need to be here; everything else has defaults (s1/config.py).
+camera_id: CAM-01
+parking_area_id: AREA-01
+source: "rtsp://192.168.68.130:8554/"
+replay: realtime              # realtime = drops frames like a live camera; sync = every frame
+geometry_file: data/geometry_live.json
+
+detector:
+  model_path: yolo11n.pt
+  max_fps: 5
+  threads: 2
+
+plate:
+  enabled: true
+  min_vehicle_height_px: 70
+  interval_s: 0.1          # Check OCR more frequently during entry
+  confirm_reads: 2         # Lower required consistent reads to lock in faster
+  confirm_conf: 0.40       # Slightly relax confidence requirement
+  emit_deadline_s: 10.0     # Give it more time before timing out
+  min_crop_brightness: 8.0
+  max_crop_brightness: 247.0
+  min_crop_contrast: 5.0
+  min_crop_laplacian_var: 2.0
+  min_plate_detector_conf: 0.30
+  min_plate_width_px: 24
+  min_plate_height_px: 8
+  min_plate_aspect_ratio: 1.5
+  max_plate_aspect_ratio: 7.0
+
+publisher:
+  outbox_db: data/outbox_live.db
+  s2_url: https://smart-parking-data-service.onrender.com/internal/events/vehicle
+
+
+
+
+

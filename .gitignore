@@ -1,0 +1,44 @@
+﻿.venv/
+.venv312/
+venv/
+__pycache__/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+*.pt
+*.onnx
+
+# Local backups, debug artifacts, and generated diagnostics
+anpr_backup_*/
+*.zip
+*.jpg
+*.jpeg
+*.png
+*.log
+*.csv
+fix_diagnostics.txt
+smart_parking_fix_bundle.txt
+.pytest_cache/
+
+# Backup and pre-fix copies
+*.backup*
+*.before_*
+*.bak*
+*.stage2-backup
+anpr_backup_*/
+
+# Local databases and diagnostic artifacts
+*.db
+*.sqlite
+*.sqlite3
+*.jpg
+*.jpeg
+*.png
+*.zip
+*.csv
+*.log
+fix_diagnostics.txt
+smart_parking_fix_bundle.txt
+data/code_backup_*/
+data/diag_frames/
